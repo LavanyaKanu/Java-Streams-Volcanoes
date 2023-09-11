@@ -17,9 +17,9 @@ public class Main {
         //volcanoAnalyzer.eruptedIn1970s().forEach(System.out::println);
         //System.out.println(volcanoAnalyzer.percentageOfMudflow());
         //volcanoAnalyzer.getEruptionNames(5967).forEach(System.out::println);
-        volcanoAnalyzer.getTemDeadlyEruptions();
+        volcanoAnalyzer.getTemDeadlyEruptions().forEach(volcano -> {
+            System.out.println(volcano.getName() + ":" + volcano.getDEATHS());
+        });
     }
-
-
 
 }

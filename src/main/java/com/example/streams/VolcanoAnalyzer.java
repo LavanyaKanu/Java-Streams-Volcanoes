@@ -55,13 +55,11 @@ public class VolcanoAnalyzer {
                 .collect(Collectors.toList());
     }
 
-    public void getTemDeadlyEruptions() {
+    public List<Volcano> getTemDeadlyEruptions() {
         List<String> deadlyVolcano = new ArrayList<>();
         List<Volcano> topTenDeadlyEruptions = volcanoes.stream()
                 .sorted(Comparator.comparingInt(Volcano::getDEATHS).reversed()).limit(10)
                 .collect(Collectors.toList());
-        topTenDeadlyEruptions.forEach(volcano -> {
-            System.out.println(volcano.getName() + ":" + volcano.getDEATHS());
-        });
+        return topTenDeadlyEruptions;
     }
 }
