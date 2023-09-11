@@ -1,0 +1,7 @@
+com/example/streams/Volcano.java
+ com.example.streams.Volcano
+com/example/streams/Main.java
+ com.example.streams.Main
+com/example/streams/VolcanoAnalyzer.java
+ com.example.streams.VolcanoAnalyzer
+ com.example.streams.VolcanoAnalyzer$1
