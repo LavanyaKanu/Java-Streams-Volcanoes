@@ -8,9 +8,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class VolcanoAnalyzer {
 
@@ -38,6 +38,30 @@ public class VolcanoAnalyzer {
 
     }
 
+    public List<Volcano> eruptedIn1970s(){
+        return volcanoes.stream().filter(volcano -> volcano.getYear() <= 1979 && volcano.getYear() >= 1970).toList();
+    }
 
+    public double percentageOfMudflow(){
+        long mudFlowCount =  volcanoes.stream().filter(volcano -> "M".equals(volcano.getAgent())).count();
+        double totalVolcanoes = (double)volcanoes.size();
+        return volcanoes.size() == 0 ? 0.0 : mudFlowCount * 100.0 / totalVolcanoes;
+    }
 
+    public List<String> getEruptionNames(int elevationThreshold){
+        return volcanoes.stream()
+                .filter(volcano -> volcano.getElevation() >= elevationThreshold)
+                .map(volcano -> volcano.getName())
+                .collect(Collectors.toList());
+    }
+
+    public void getTemDeadlyEruptions() {
+        List<String> deadlyVolcano = new ArrayList<>();
+        List<Volcano> topTenDeadlyEruptions = volcanoes.stream()
+                .sorted(Comparator.comparingInt(Volcano::getDEATHS).reversed()).limit(10)
+                .collect(Collectors.toList());
+        topTenDeadlyEruptions.forEach(volcano -> {
+            System.out.println(volcano.getName() + ":" + volcano.getDEATHS());
+        });
+    }
 }

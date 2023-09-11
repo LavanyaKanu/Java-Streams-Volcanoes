@@ -13,8 +13,13 @@ public class Main {
             e.printStackTrace();
         }
 
-        volcanoAnalyzer.volcanoes.forEach(System.out::println);
-
+        //volcanoAnalyzer.volcanoes.forEach(System.out::println);
+        //volcanoAnalyzer.eruptedIn1970s().forEach(System.out::println);
+        //System.out.println(volcanoAnalyzer.percentageOfMudflow());
+        //volcanoAnalyzer.getEruptionNames(5967).forEach(System.out::println);
+        volcanoAnalyzer.getTemDeadlyEruptions();
     }
+
+
 
 }
